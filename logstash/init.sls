@@ -8,10 +8,10 @@ include:
 logstash-pkg:
   pkg.{{logstash.pkgstate}}:
     - name: {{logstash.pkg}}
-    {%- if logstash.use_upstream_repo %}
     - require:
-      - pkgrepo: logstash-repo
       - pkg: {{ logstash.java }}
+    {%- if logstash.use_upstream_repo %}
+      - pkgrepo: logstash-repo
     {%- endif %}
 
 {{ logstash.java }}:
